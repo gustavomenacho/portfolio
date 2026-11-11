@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Memória · Gustavo Menacho</title>
+    <meta name="description" content="Jogo da memória com as lendas do Smash Deck, cartas em 3D e um tabuleiro que nunca precisa de rolagem." />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- previa quando o link e compartilhado (troque o endereco depois de publicar) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://gustavomenacho.netlify.app/projetos/jogo-da-memoria.html" />
+    <meta property="og:title" content="Jogo da Memória · Estudo de caso de Gustavo Menacho" />
+    <meta property="og:description" content="Jogo da memória com as lendas do Smash Deck, cartas em 3D e um tabuleiro que nunca precisa de rolagem." />
+    <meta property="og:image" content="https://gustavomenacho.netlify.app/assets/memoria-partida.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Helvetica,Arial' font-weight='700' font-size='36' fill='%23f5f5f7'%3EG%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <!-- avisa o css que o javascript esta ligado (as animacoes so escondem o conteudo nesse caso) -->
+    <script>
+      document.documentElement.classList.add("js");
+
+      // aplica o tema salvo antes da pagina aparecer (pra nao piscar)
+      let temaSalvo = null;
+      try {
+        temaSalvo = localStorage.getItem("portfolio-tema");
+      } catch (error) {}
+      if (temaSalvo === "light") {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+  </head>
+  <body class="pagina-projeto">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="nav">
+      <nav class="nav-inner" aria-label="Principal">
+        <a class="nav-logo" href="../index.html">Gustavo Menacho</a>
+        <ul class="nav-links">
+          <li><a href="../index.html#sobre">Sobre</a></li>
+          <li><a href="../index.html#filosofia">Filosofia</a></li>
+          <li><a href="../index.html#projetos" class="ativo" aria-current="page">Projetos</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
+        </ul>
+        <!-- botao de tema: no escuro mostra o sol, no claro mostra a lua -->
+        <button class="tema-botao" type="button" id="temaBotao" aria-label="Ativar tema claro">
+          <svg class="icone-sol" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+          <svg class="icone-lua" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
+          </svg>
+        </button>
+        <a class="pill pill-small" href="../index.html#contato">Vamos conversar</a>
+      </nav>
+    </header>
+
+    <main id="conteudo" class="secao">
+      <a class="voltar" href="../index.html#projetos">‹ Todos os projetos</a>
+
+        <article class="projeto" id="projeto-memoria" aria-labelledby="p4-titulo">
+          <header class="projeto-topo reveal">
+            <p class="projeto-categoria"><span>04</span> Interação · Interface de jogo</p>
+            <h1 id="p4-titulo" class="projeto-titulo">Um minijogo para provar que lógica também é experiência.</h1>
+            <p class="projeto-resumo">
+              Jogo da memória com as lendas do Smash Deck, cartas em 3D e um tabuleiro que nunca precisa de rolagem.
+            </p>
+            <p class="projeto-links">
+              <a class="link-seta" href="https://smashdecktcg-memoria.netlify.app" target="_blank" rel="noopener">Jogar</a>
+              <a class="link-seta" href="https://github.com/gustavomenacho/Memory-Game" target="_blank" rel="noopener">Ver o código</a>
+            </p>
+          </header>
+
+          <!-- antes e depois: a imagem principal do projeto -->
+          <div class="antes-depois reveal">
+            <figure class="ad-item">
+              <button class="foto-botao" type="button" data-full="../assets/memoria-antes.webp" aria-label="Ampliar: primeira versão do jogo, com cartas roxas e emojis">
+                <img src="../assets/memoria-antes.webp" alt="primeira versão do jogo, com cartas roxas e emojis" loading="lazy" />
+              </button>
+              <figcaption><span class="ad-tag">Antes</span> Primeira versão</figcaption>
+            </figure>
+            <figure class="ad-item">
+              <button class="foto-botao" type="button" data-full="../assets/memoria-partida.webp" aria-label="Ampliar: jogo atual com as lendas do Smash Deck">
+                <img src="../assets/memoria-partida.webp" alt="jogo atual com as lendas do Smash Deck" loading="lazy" />
+              </button>
+              <figcaption><span class="ad-tag ad-tag-depois">Depois</span> Hoje: com as lendas</figcaption>
+            </figure>
+            <p class="ad-legenda"><strong>De exercício a parte de um universo.</strong> O jogo de emojis virou o minijogo oficial do Smash Deck, com a identidade do site, três dificuldades e cartas que viram em 3D.</p>
+          </div>
+
+          <div class="galeria galeria-1">
+            <figure class="foto foto-celular reveal">
+              <button class="foto-botao" type="button" data-full="../assets/memoria-celular.webp" aria-label="Ampliar: jogo da memória no celular">
+                <img src="../assets/memoria-celular.webp" alt="Jogo da memória no celular, com a grade de cartas em pé" loading="lazy" />
+              </button>
+              <figcaption>
+                <strong>A grade gira, a tela não rola.</strong>
+                No celular em pé, o tabuleiro troca linhas por colunas para caber inteiro.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="bento">
+            <div class="card card-grande reveal">
+              <h2 class="card-rotulo">O quê</h2>
+              <p>
+                A primeira versão era um jogo da memória com emojis. Virou o <strong>minijogo oficial do Smash Deck</strong>,
+                com a mesma identidade do site, <strong>três dificuldades</strong> e <strong>recorde salvo</strong> para cada uma.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h2 class="card-rotulo">Para quem</h2>
+              <p>
+                Quem visita o Smash Deck e quer conhecer as lendas brincando, no computador ou no celular,
+                com <strong>mouse, toque ou teclado</strong>.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h2 class="card-rotulo">Como</h2>
+              <p>
+                Embaralhamento <strong>Fisher-Yates</strong>, porque o "sort aleatório" não sorteia de forma justa. O tamanho
+                das cartas é calculado <strong>só com CSS</strong>, com <strong>container queries</strong>. E <strong>cada carta é um botão</strong>.
+              </p>
+            </div>
+            <div class="card card-grande card-metricas reveal">
+              <h2 class="card-rotulo">Por quê</h2>
+              <p>
+                Num jogo da memória, rolar a tela para achar uma carta acaba com a graça. Por isso o <strong>tabuleiro
+                se ajusta a qualquer tela</strong>, e no celular em pé <strong>a grade gira</strong> para caber inteira.
+              </p>
+              <ul class="metricas">
+                <li><strong>103</strong><span>lendas sorteadas a cada partida</span></li>
+                <li><strong>0</strong><span>rolagem, em qualquer tela</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <blockquote class="entusiasmo reveal">
+            <p>
+              “Descobrir que dava para resolver o tamanho das cartas só com CSS, sem nenhuma linha de JavaScript
+              medindo a tela, foi o tipo de solução simples que me fez gostar ainda mais de front-end.”
+            </p>
+            <footer>O que me fez gostar desse projeto</footer>
+          </blockquote>
+        </article>
+
+      <!-- navegacao entre os projetos -->
+      <nav class="outros-projetos" aria-label="Outros projetos">
+        <a class="outro-projeto" href="livro-caixa.html">
+          <span>‹ Projeto anterior</span>
+          <strong>Livro-Caixa</strong>
+        </a>
+        <a class="outro-projeto outro-projeto-proximo" href="smash-deck.html">
+          <span>Próximo projeto ›</span>
+          <strong>Smash Deck TCG</strong>
+        </a>
+      </nav>
+
+      <section class="cta-projeto" aria-labelledby="cta-titulo">
+        <h2 id="cta-titulo">Gostou deste projeto?</h2>
+        <p>Estou buscando minha primeira oportunidade como desenvolvedor front-end.</p>
+        <a class="pill" href="../index.html#contato">Vamos conversar</a>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>Gustavo Menacho · Feito com HTML, CSS e JavaScript, sem frameworks.</p>
+    </footer>
+
+    <!-- janela para ampliar as imagens -->
+    <dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+      <button class="lightbox-fechar" type="button" id="fecharLightbox" aria-label="Fechar">×</button>
+      <figure class="lightbox-figura">
+        <img id="lightboxImg" alt="" />
+        <figcaption id="lightboxLegenda"></figcaption>
+      </figure>
+    </dialog>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
